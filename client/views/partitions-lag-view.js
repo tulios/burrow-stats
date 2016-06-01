@@ -5,8 +5,8 @@ import API from '../api'
 import APIStatus from '../components/api-status'
 import PartitionLagStats from '../components/partition-lag-stats'
 import Spinner from '../components/spinner'
+import burrowStatsOptions from '../utils/burrow-stats-options'
 
-const INTERVAL_TIME = 10 * 1000
 
 export default React.createClass({
   fetch() {
@@ -34,7 +34,8 @@ export default React.createClass({
   },
 
   componentDidMount() {
-    this._intervalId = setInterval(() => this.fetch(), INTERVAL_TIME)
+    console.log(`Polling partitions-lag-view every ${burrowStatsOptions().pollInterval}s`)
+    this._intervalId = setInterval(() => this.fetch(), burrowStatsOptions().pollInterval * 1000)
   },
 
   componentWillUnmount() {

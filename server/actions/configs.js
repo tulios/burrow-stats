@@ -2,6 +2,7 @@ var config = require('../../configs.json')
 
 module.exports = function (req, res) {
   res.json({
-    chartOptions: config.chartOptions
+    chartOptions: config.chartOptions,
+    burrowStatsOptions: config.burrowStatsOptions
   })
 }

@@ -19,5 +19,9 @@
     "scaleSteps": null,
     "scaleStepWidth": null,
     "scaleStartValue": null
+  },
+  "burrowStatsOptions": {
+    "cacheDuration": 3600,
+    "pollInterval": 60
   }
 }
