@@ -8,12 +8,11 @@ import chartOptions from '../utils/chart-options'
 import Widget from './widget'
 
 const SERIES_MAX_LENGTH = 30
-const CACHE_KEY = 'burrowStats-merged-total-lag'
 
 export default React.createClass({
   render() {
     return (
-      <Widget className='merged-lag-stats' name='Merged lag'>
+      <Widget className='merged-lag-stats'>
         <LineChart data={this.chartData()}
                    options={chartOptions()}
                    width='100'
@@ -22,7 +21,7 @@ export default React.createClass({
     )
   },
 
-  getTotalLag(consumer) {
+  cacheConsumer(consumer) {
     const consumerGroupOffsets = consumer.consumer_group.offsets
     const topicOffsets = consumer.topic.offsets
     const totalLag = topicOffsets
@@ -30,31 +29,39 @@ export default React.createClass({
       .map((value) => value >= 0 ? value : 0)
       .reduce((total, value) => total + value, 0)
 
-    const oldCache = JSON.parse(localStorage.getItem(CACHE_KEY)) || {}
-    let newCacheEntry = { series: [{time: moment(), totalLag: totalLag}] }
+    const oldCache = this.readCache(consumer.name)
+    let newCache = { series: [{time: moment(), totalLag: totalLag}] }
 
-    if (oldCache[consumer.name]) {
-      let oldCacheEntry = oldCache[consumer.name]
-      oldCacheEntry.series = oldCacheEntry.series.concat(newCacheEntry.series)
-      if (oldCacheEntry.series.length > SERIES_MAX_LENGTH) {
-        oldCacheEntry.series.shift()
+    if (oldCache) {
+      oldCache.series = oldCache.series.concat(newCache.series)
+      if (oldCache.series.length > SERIES_MAX_LENGTH) {
+        oldCache.series.shift()
       }
-      newCacheEntry = oldCacheEntry
+      newCache = oldCache
     }
 
-    oldCache[consumer.name] = newCacheEntry
-    localStorage.setItem(CACHE_KEY, JSON.stringify(oldCache))
+    this.writeCache(consumer.name, newCache)
   },
 
-   chartData() {
-    this.props.data.forEach(this.getTotalLag)
-    const newCache = JSON.parse(localStorage.getItem(CACHE_KEY))
-    const cacheKeys = Object.keys(newCache)
+  writeCache(name, cache) {
+    const cacheKey = `burrowStats-total-lag-${name}`
+    localStorage.setItem(cacheKey, JSON.stringify(cache))
+  },
+
+  readCache(name) {
+    const cacheKey = `burrowStats-total-lag-${name}`
+    return JSON.parse(localStorage.getItem(cacheKey))
+  },
+
+ chartData() {
+    this.props.data.forEach(this.cacheConsumer)
+    const consumerNames = this.props.data.map(entry => entry.name)
+    const caches = consumerNames.map(this.readCache)
+
     return {
-      labels: newCache[cacheKeys[0]].series.map(entry => moment(entry.time).format('H:mm:ss')),
-      datasets: cacheKeys.map(key => {
-        const entry = newCache[key]
-        return chartEntry(entry.series.map(entry => entry.totalLag), key)
+      labels: caches[0].series.map(entry => moment(entry.time).format('H:mm:ss')),
+      datasets: caches.map((consumerCache, i) => {
+        return chartEntry(consumerCache.series.map(entry => entry.totalLag), consumerNames[i])
       })
     }
   }
