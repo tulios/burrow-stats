@@ -6,8 +6,8 @@ import TotalLagStats from '../components/total-lag-stats'
 import MergedLagStats from '../components/merged-lag-stats'
 import Spinner from '../components/spinner'
 import Toggle from 'material-ui/Toggle';
+import burrowStatsOptions from '../utils/burrow-stats-options'
 
-const INTERVAL_TIME = 10 * 1000
 const MERGE_CHARTS_CACHE_KEY = 'burrowStats-lag-view-merge-charts'
 
 export default React.createClass({
@@ -50,7 +50,8 @@ export default React.createClass({
   },
 
   componentDidMount() {
-    this._intervalId = setInterval(() => this.fetch(), INTERVAL_TIME)
+    console.log(`Polling consumer-lag-view every ${burrowStatsOptions().pollInterval}s`)
+    this._intervalId = setInterval(() => this.fetch(), burrowStatsOptions().pollInterval * 1000)
   },
 
   componentWillUnmount() {

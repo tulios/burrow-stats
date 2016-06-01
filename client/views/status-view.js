@@ -4,8 +4,7 @@ import API from '../api'
 import APIStatus from '../components/api-status'
 import ConsumerStatus from '../components/consumer-status'
 import Spinner from '../components/spinner'
-
-const INTERVAL_TIME = 10 * 1000
+import burrowStatsOptions from '../utils/burrow-stats-options'
 
 export default React.createClass({
   fetch() {
@@ -33,7 +32,8 @@ export default React.createClass({
   },
 
   componentDidMount() {
-    this._intervalId = setInterval(() => this.fetch(), INTERVAL_TIME)
+    console.log(`Polling status-view every ${burrowStatsOptions().pollInterval}s`)
+    this._intervalId = setInterval(() => this.fetch(), burrowStatsOptions().pollInterval * 1000)
   },
 
   componentWillUnmount() {
