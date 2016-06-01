@@ -34,7 +34,7 @@ function refreshTotalLag(consumer) {
     const missingElements = SERIES_MAX_LENGTH - currentCache.series.length
 
     for (let i=0; i < missingElements; i++) {
-      currentCache.series.unshift(0)
+      currentCache.series.unshift({time: moment(), totalLag: 0})
     }
 
     if (missingElements < 0) {
