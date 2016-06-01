@@ -1,0 +1,15 @@
+@import 'normalize.css/normalize';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: roboto;
+  background-color: #1e2430;
+  min-width: 600px;
+}
+
+#main {
+  margin: 0 50px 300px 50px;
+}

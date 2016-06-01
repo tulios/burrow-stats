@@ -1,0 +1,31 @@
+.total-lag-stats {
+  svg:not(:root) {
+    overflow: visible;
+  }
+
+  .ct-chart {
+    height: 500px;
+  }
+
+  .ct-series-a .ct-line {
+    /* Set the colour of this series line */
+    stroke: #0089CF;
+    /* Control the thikness of your lines */
+    stroke-width: 5px;
+  }
+
+  .ct-series-a .ct-point {
+    /* Colour of your points */
+    stroke: #006193;
+    /* Size of your points */
+    stroke-width: 10px;
+  }
+
+  .ct-series-a .ct-area {
+    fill: #0076b2;
+  }
+
+  .ct-label .ct-vertical .ct-start {
+    width: 100px;
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="125">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-19.5228,-16.1001,39.0455,32.2002)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,49.2605,33.1009)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M36.545,36.5 L32.371,32.331 C28.86,28.824 28.86,23.138 32.371,19.631 C35.882,16.124 41.575,16.124 45.086,19.631 L49.26,23.8 L53.434,19.631 C56.946,16.124 62.638,16.124 66.15,19.631 C69.661,23.138 69.661,28.824 66.15,32.331 L61.975,36.5 L49.26,49.201 L36.545,36.5 Z" style="stroke:none;fill-rule:nonzero;fill:#ffffff;fill-opacity:1;"/>
+        </g>
+        <g id="Shape2">
+            <desc shapeID="2" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-37,-32.4996,74,64.9992)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,49.5,49.5004)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath2" d="M68.054,54.686 L86.5,54.686 L86.5,82 L68.054,82 L68.054,54.686 M36.545,36.5 L32.371,32.331 C28.86,28.824 28.86,23.138 32.371,19.631 C35.882,16.124 41.575,16.124 45.086,19.631 L49.26,23.8 L53.434,19.631 C56.946,16.124 62.638,16.124 66.15,19.631 C69.661,23.138 69.661,28.824 66.15,32.331 L61.975,36.5 L49.26,49.201 L36.545,36.5 M12.5,72.895 L30.946,72.895 L30.946,82 L12.5,82 L12.5,72.895 M40.276,63.789 L58.722,63.789 L58.722,82 L40.276,82 L40.276,63.789 Z" style="stroke:none;fill-rule:nonzero;fill:#ffffff;fill-opacity:1;"/>
+        </g>
+    </g>
+</svg>

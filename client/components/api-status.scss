@@ -1,0 +1,19 @@
+.api-status {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  &.disabled {
+    visibility: hidden;
+  }
+
+  .text {
+    color: white;
+    padding: 10px 10px 10px 10px;
+    border-radius: 0 0 4px 4px;
+    background-color: #ef4242;
+    display: inline-block;
+  }
+}

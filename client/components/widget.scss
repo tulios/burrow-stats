@@ -1,0 +1,20 @@
+.widget {
+  .header {
+    position: relative;
+    height: 6vmin;
+    line-height: 6vmin;
+    border-radius: 2px 2px 0 0;
+    padding: 0 2vmin;
+    background-color: #323f53;
+    color: #D0D0D0;
+    border-bottom: 1px solid #253246;
+    box-shadow: 0 1px 0 #495b71 inset;
+    white-space: pre;
+    margin-bottom: 0;
+  }
+
+  .body {
+    padding: 10px 0;
+    background-color: #2b3847;
+  }
+}

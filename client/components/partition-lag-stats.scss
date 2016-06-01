@@ -1,0 +1,19 @@
+.partition-lag-stats {
+  margin: 10px 0 60px 0;
+
+  svg:not(:root) {
+    overflow: visible;
+  }
+
+  .ct-chart {
+    height: 300px;
+    padding-bottom: 40px;
+  }
+
+  .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: #0089CF;
+    /* The width of your bars */
+    stroke-width: 30px;
+  }
+}

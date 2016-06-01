@@ -1,0 +1,55 @@
+{
+  "name": "burrow-stats",
+  "version": "0.1.0",
+  "engines": {
+    "node": "5.5.x"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/server.js",
+    "dev": "./node_modules/.bin/supervisor --watch server bin/server.js",
+    "build": "rm -rf dist/ && node bin/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.9.1",
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.5.2",
+    "babel-runtime": "^6.5.0",
+    "chart.js": "^1.0.2",
+    "express": "^4.13.4",
+    "file-loader": "^0.8.5",
+    "mappersmith": "^0.13.1",
+    "moment": "^2.11.2",
+    "react": "^0.14.7",
+    "q": "^1.4.1",
+    "react-chartjs": "^0.7.3",
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-react-transform": "^2.0.0",
+    "babel-preset-react": "^6.5.0",
+    "connect-history-api-fallback": "^1.1.0",
+    "css-loader": "^0.23.1",
+    "html-webpack-plugin": "^2.8.1",
+    "loader-utils": "^0.2.12",
+    "node-sass": "^3.4.2",
+    "normalize.css": "^3.0.3",
+    "recursive-readdir-sync": "^1.0.6",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "supervisor": "^0.9.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.13",
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.7.1"
+  }
+}

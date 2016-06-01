@@ -1,0 +1,40 @@
+.consumer-status {
+  position: relative;
+  float: left;
+  padding: 30px;
+  border: 1px solid #ffa300;
+  margin: 10px;
+
+  &.ok {
+    border-color: #0089CF;
+    background-color: #006193;
+    color: #D0D0D0;
+  }
+
+  &.err {
+    border-color: #ef4242;
+    background-color: #f06a6a;
+  }
+
+  .status {
+    font-size: 60px;
+  }
+
+  .complete {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    &.true {
+      background-color: #71e47b;
+    }
+
+    &.false {
+      background-color: #fcfc02;
+    }
+  }
+}

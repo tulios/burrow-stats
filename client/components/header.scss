@@ -1,0 +1,40 @@
+.header {
+  position: relative;
+  min-height: 50px;
+  border: 1px solid transparent;
+  padding: 20px 0 10px 0;
+
+  .home-link {
+    margin-right: 20px;
+    overflow: hidden;
+  }
+
+  .logo-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    img {
+      position: absolute;
+      width: 70px;
+      top: 10px;
+    }
+  }
+
+  .menu-item {
+    text-decoration: none;
+    margin-right: 15px;
+    color: #D0D0D0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.active {
+      font-weight: bold;
+      padding-bottom: 5px;
+      border-bottom: 1px solid white;
+    }
+  }
+}
