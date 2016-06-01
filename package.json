@@ -30,6 +30,8 @@
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
     "react-chartjs": "^0.7.3",
+    "react-tap-event-plugin": "^1.0.0",
+    "material-ui": "^0.15.0"
   },
   "devDependencies": {
     "babel-core": "^6.5.2",

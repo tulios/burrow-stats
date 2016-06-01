@@ -4,6 +4,8 @@ import API from '../api'
 import SettingsStore from '../utils/settings-store'
 
 import Spinner from './spinner'
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default React.createClass({
   getInitialState() {
@@ -26,11 +28,13 @@ export default React.createClass({
     return (
       <div className='layout'>
         <Header />
-        {
-          this.state.loaded ?
-            React.cloneElement(this.props.children, {apiError: this.state.apiError}) :
-            <Spinner />
-        }
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
+          {
+            this.state.loaded ?
+              React.cloneElement(this.props.children, {apiError: this.state.apiError}) :
+              <Spinner />
+          }
+        </MuiThemeProvider>
       </div>
     )
   },
