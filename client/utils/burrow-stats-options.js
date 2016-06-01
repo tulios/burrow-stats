@@ -1,8 +1,8 @@
 import SettingsStore from '../utils/settings-store'
 
 const defaultSettings =  {
-  cacheDuration: 3600,
-  pollInterval: 60
+  cacheDuration: 300,
+  pollInterval: 10
 }
 
 export default function() {
