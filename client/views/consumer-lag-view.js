@@ -3,6 +3,7 @@ import API from '../api'
 
 import APIStatus from '../components/api-status'
 import TotalLagStats from '../components/total-lag-stats'
+import MergedLagStats from '../components/merged-lag-stats'
 import Spinner from '../components/spinner'
 import Toggle from 'material-ui/Toggle';
 
@@ -59,9 +60,14 @@ export default React.createClass({
 
   toggleMergeCharts(event, enabled) {
     localStorage.setItem(MERGE_CHARTS_CACHE_KEY, enabled)
+    this.setState({mergeCharts: enabled})
   },
 
   renderTotalLagStats() {
+    if (this.state.mergeCharts) {
+      return <MergedLagStats data={this.state.data} />
+    }
+
     return this.state
       .data
       .map((consumerData) => {

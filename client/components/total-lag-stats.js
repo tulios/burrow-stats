@@ -45,11 +45,7 @@ export default React.createClass({
 
     return {
       labels: newCache.series.map((entry) => moment(entry.time).format('H:mm:ss')),
-      datasets: [
-        chartEntry(newCache.series.map((entry) => entry.totalLag), 'Total Lag'),
-        chartEntry(newCache.series.map((entry) => entry.totalLag/2), 'Total Lag'),
-        chartEntry(newCache.series.map((entry) => entry.totalLag/3), 'Total Lag')
-      ]
+      datasets: [chartEntry(newCache.series.map((entry) => entry.totalLag), 'Total Lag')]
     }
   }
 
