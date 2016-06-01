@@ -1,6 +1,8 @@
 # Burrow Stats
 
-Dashboard for burrow
+Dashboard for burrow kafka consumer lag checking
+
+![screenshot](https://raw.githubusercontent.com/tulios/burrow-stats/master/screenshot.png)
 
 ## Running locally
 
