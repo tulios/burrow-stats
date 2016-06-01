@@ -1,0 +1,12 @@
+.consumer-lag-view {
+  .chart-merge-toggle {
+    & > div {
+      justify-content: flex-end;
+    }
+
+    label {
+      color: white !important;
+      width: auto !important;
+    }
+  }
+}
