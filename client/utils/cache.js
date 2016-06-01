@@ -26,15 +26,22 @@ function refreshTotalLag(consumer) {
     .map((value) => value >= 0 ? value : 0)
     .reduce((total, value) => total + value, 0)
 
-  const oldCache = read(cacheName)
+  const currentCache = read(cacheName)
   let newCache = { series: [{time: moment(), totalLag: totalLag}] }
 
-  if (oldCache) {
-    oldCache.series = oldCache.series.concat(newCache.series)
-    if (oldCache.series.length > SERIES_MAX_LENGTH) {
-      oldCache.series.shift()
+  if (currentCache) {
+    currentCache.series = currentCache.series.concat(newCache.series)
+    const missingElements = SERIES_MAX_LENGTH - currentCache.series.length
+
+    for (let i=0; i < missingElements; i++) {
+      currentCache.series.unshift(0)
     }
-    newCache = oldCache
+
+    if (missingElements < 0) {
+      currentCache.series.shift()
+    }
+
+    newCache = currentCache
   }
 
   write(cacheName, newCache)
