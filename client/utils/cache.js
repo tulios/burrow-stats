@@ -38,6 +38,8 @@ function refreshTotalLag(consumer) {
   }
 
   write(cacheName, newCache)
+
+  return newCache
 }
 
 export default { read, write, readTotalLag, refreshTotalLag }

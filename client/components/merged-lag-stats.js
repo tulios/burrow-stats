@@ -1,7 +1,6 @@
 import React from 'react'
 import { Line as LineChart } from 'react-chartjs';
 import moment from 'moment'
-import humanize from '../utils/humanize'
 import cache from '../utils/cache'
 import chartEntry from '../utils/chart-entry'
 import chartOptions from '../utils/chart-options'
