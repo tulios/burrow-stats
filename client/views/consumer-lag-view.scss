@@ -9,4 +9,27 @@
       width: auto !important;
     }
   }
+  .line-legend {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+
+    li {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      padding-right: 15px;
+    }
+
+    .line-legend-icon, .line-legend-text {
+      display: inline-block;
+    }
+
+    .line-legend-icon {
+      height: 15px;
+      width: 15px;
+      margin-right: 10px;
+      border-radius: 4px;
+    }
+  }
 }

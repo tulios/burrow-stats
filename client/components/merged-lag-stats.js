@@ -8,13 +8,23 @@ import chartOptions from '../utils/chart-options'
 import Widget from './widget'
 
 export default React.createClass({
+  getInitialState() {
+    return { legend: '' }
+  },
+
+  componentDidMount() {
+    this.setState({ legend: this.refs.chart.getChart().generateLegend() })
+  },
+
   render() {
     return (
       <Widget className='merged-lag-stats'>
         <LineChart data={this.chartData()}
                    options={chartOptions()}
                    width='100'
-                   height='35'/>
+                   height='35'
+                   ref='chart' />
+        <div dangerouslySetInnerHTML={{__html: this.state.legend}} />
       </Widget>
     )
   },
