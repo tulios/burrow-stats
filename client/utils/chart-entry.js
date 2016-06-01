@@ -1,3 +1,20 @@
+import moment from 'moment'
+
+export default function(data, label, merge) {
+  return Object.assign({
+    label: label,
+    data: data
+  }, merge || chartPalette())
+}
+
+export function chartLabel(entry) {
+  if (typeof entry.time === 'object') {
+    return moment(entry.time).format('H:mm:ss')
+  }
+
+  return entry.time
+}
+
 export function chartPalette(i) {
   const palette = [
     {
@@ -82,11 +99,4 @@ export function chartPalette(i) {
     }
   ]
   return palette[i || 0] || palette[0]
-}
-
-export default function(data, label, merge) {
-  return Object.assign({
-    label: label,
-    data: data
-  }, merge || chartPalette())
 }

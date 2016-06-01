@@ -19,6 +19,7 @@ function readTotalLag(name) {
 
 function refreshTotalLag(consumer) {
   const cacheName = `total-lag-${consumer.name}`
+  const currentTime = moment().format('H:mm:ss')
   const consumerGroupOffsets = consumer.consumer_group.offsets
   const topicOffsets = consumer.topic.offsets
   const totalLag = topicOffsets
@@ -27,14 +28,18 @@ function refreshTotalLag(consumer) {
     .reduce((total, value) => total + value, 0)
 
   const currentCache = read(cacheName)
-  let newCache = { series: [{time: moment(), totalLag: totalLag}] }
+  let newCache = { series: [{time: currentTime, totalLag: totalLag}] }
 
   if (currentCache) {
+    if (isTimeRegistered(currentCache, currentTime)) {
+      return currentCache
+    }
+
     currentCache.series = currentCache.series.concat(newCache.series)
     const missingElements = SERIES_MAX_LENGTH - currentCache.series.length
 
     for (let i=0; i < missingElements; i++) {
-      currentCache.series.unshift({time: moment(), totalLag: 0})
+      currentCache.series.unshift({time: currentTime, totalLag: 0})
     }
 
     if (missingElements < 0) {
@@ -47,6 +52,10 @@ function refreshTotalLag(consumer) {
   write(cacheName, newCache)
 
   return newCache
+}
+
+function isTimeRegistered(cache, time) {
+  return (cache.series || []).map(e => e.time).indexOf(time) !== -1
 }
 
 export default { read, write, readTotalLag, refreshTotalLag }

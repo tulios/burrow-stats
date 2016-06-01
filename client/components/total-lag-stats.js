@@ -2,7 +2,7 @@ import React from 'react'
 import { Line as LineChart } from 'react-chartjs';
 import moment from 'moment'
 import cache from '../utils/cache'
-import chartEntry from '../utils/chart-entry'
+import chartEntry, {chartLabel} from '../utils/chart-entry'
 import chartOptions from '../utils/chart-options'
 
 import Widget from './widget'
@@ -21,10 +21,11 @@ export default React.createClass({
 
   chartData() {
     const totalLagData = cache.refreshTotalLag(this.props)
+    const labels = totalLagData.series.map(chartLabel)
 
     return {
-      labels: totalLagData.series.map((entry) => moment(entry.time).format('H:mm:ss')),
-      datasets: [chartEntry(totalLagData.series.map((entry) => entry.totalLag), 'Total Lag')]
+      labels: labels,
+      datasets: [chartEntry(totalLagData.series.map(entry => entry.totalLag), 'Total Lag')]
     }
   }
 

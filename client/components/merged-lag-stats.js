@@ -2,7 +2,7 @@ import React from 'react'
 import { Line as LineChart } from 'react-chartjs';
 import moment from 'moment'
 import cache from '../utils/cache'
-import chartEntry, {chartPalette} from '../utils/chart-entry'
+import chartEntry, {chartLabel, chartPalette} from '../utils/chart-entry'
 import chartOptions from '../utils/chart-options'
 
 import Widget from './widget'
@@ -33,12 +33,16 @@ export default React.createClass({
     this.props.consumers.forEach(cache.refreshTotalLag)
     const consumerNames = this.props.consumers.map(entry => entry.name)
     const caches = consumerNames.map(cache.readTotalLag)
+    const labels = caches[0].series.map(chartLabel)
 
     return {
-      labels: caches[0].series.map(entry => moment(entry.time).format('H:mm:ss')),
+      labels: labels,
       datasets: caches.map((consumerCache, i) => {
-        const palette = chartPalette(i)
-        return chartEntry(consumerCache.series.map(entry => entry.totalLag), consumerNames[i], palette)
+        return chartEntry(
+          consumerCache.series.map(entry => entry.totalLag),
+          consumerNames[i],
+          chartPalette(i)
+        )
       })
     }
   }
