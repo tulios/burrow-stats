@@ -1,4 +1,12 @@
 .status-view {
   overflow: hidden;
   margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .consumer-status {
+    flex-grow: 1;
+  }
 }
