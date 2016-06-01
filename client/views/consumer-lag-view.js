@@ -65,7 +65,7 @@ export default React.createClass({
 
   renderTotalLagStats() {
     if (this.state.mergeCharts) {
-      return <MergedLagStats data={this.state.data} />
+      return <MergedLagStats consumers={this.state.data} />
     }
 
     return this.state
