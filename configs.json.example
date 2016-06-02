@@ -21,7 +21,7 @@
     "scaleStartValue": null
   },
   "burrowStatsOptions": {
-    "cacheDuration": 3600,
-    "pollInterval": 60
+    "pollInterval": 60,
+    "cacheBinSize": 60
   }
 }

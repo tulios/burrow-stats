@@ -19,7 +19,6 @@ function readTotalLag(name) {
 
 function refreshTotalLag(consumer) {
   const cacheName = `total-lag-${consumer.name}`
-  const maxBinSize = Math.round(burrowStatsOptions().cacheDuration / burrowStatsOptions().pollInterval)
   const currentTime = moment().format('H:mm:ss')
   const consumerGroupOffsets = consumer.consumer_group.offsets
   const topicOffsets = consumer.topic.offsets
@@ -38,7 +37,7 @@ function refreshTotalLag(consumer) {
 
     currentCache.series = currentCache.series.concat(newCache.series)
 
-    const missingElements = maxBinSize - currentCache.series.length
+    const missingElements = burrowStatsOptions().cacheBinSize - currentCache.series.length
 
     for (let i=0; i < missingElements; i++) {
       currentCache.series.unshift({time: currentTime, totalLag: 0})
