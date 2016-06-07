@@ -67,10 +67,21 @@ Accepts configurations for your consumers, if needed can aggregate data from dif
 Allows you to change some behavior of the chart.
 
 * __scaleOverride__ : Enable scale override with a hard coded values. Default `false`
-* __scaleFontSize__ : The number of steps in a hard coded scale (Requires `scaleOverride` true)
+* __scaleSteps__ : The number of steps in a hard coded scale (Requires `scaleOverride` true)
 * __scaleStepWidth__ : The value jump in the hard coded scale (Requires `scaleOverride` true)
 * __scaleStartValue__ : The scale starting value (Requires `scaleOverride` true)
 * __scaleFontSize__ : Scale label font size in pixels. Default `14`
+
+Example using hard coded values for scale. The Y axis will start with 0 and it will contain 20 steps of 10. All scale parameters are connected, you __must provide__ all of them when enabling `scaleOverride`.
+
+```json
+{
+  "scaleOverride": true,
+  "scaleSteps": 20,
+  "scaleStepWidth": 10,
+  "scaleStartValue": 0
+}
+```
 
 3) Burrow Stats Options
 
