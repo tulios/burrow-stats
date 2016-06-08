@@ -76,10 +76,7 @@ export default {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ["react", "es2015"]
-        }
+        loader: 'babel'
       },
       {
         test: /client\/app\.scss/, // the main app file
