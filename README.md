@@ -89,7 +89,10 @@ Example using hard coded values for scale. The Y axis will start with 0 and it w
 {
   "burrowStatsOptions": {
     "pollInterval": 60,
-    "cacheBinSize": 60
+    "cacheBinSize": 60,
+    "envLabel": "Staging",
+    "envLabelColor": "white",
+    "envLabelBgColor": "rgba(0, 137, 207, 1)"
   }
 }
 ```
@@ -98,3 +101,6 @@ Configure burrow-stats internals.
 
 * __pollInterval__ : Frequency of data update in seconds. Default `60`
 * __cacheBinSize__ : Number of data points stored. Default `60`
+* __envLabel__ : Optional environment label. Default `null`
+* __envLabelColor__: Default `white`
+* __envLabelBgColor__: Default `rgba(0, 137, 207, 1)`
