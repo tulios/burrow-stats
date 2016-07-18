@@ -1,7 +1,7 @@
 import SettingsStore from '../utils/settings-store'
 
 const defaultSettings =  {
-  cacheBinSize: 60,
+  cacheBinSize: 30,
   pollInterval: 10
 }
 

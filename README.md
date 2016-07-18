@@ -89,7 +89,7 @@ Example using hard coded values for scale. The Y axis will start with 0 and it w
 {
   "burrowStatsOptions": {
     "pollInterval": 60,
-    "cacheBinSize": 60,
+    "cacheBinSize": 30,
     "envLabel": "Staging",
     "envLabelColor": "white",
     "envLabelBgColor": "rgba(0, 137, 207, 1)"
@@ -100,7 +100,7 @@ Example using hard coded values for scale. The Y axis will start with 0 and it w
 Configure burrow-stats internals.
 
 * __pollInterval__ : Frequency of data update in seconds. Default `60`
-* __cacheBinSize__ : Number of data points stored. Default `60`
+* __cacheBinSize__ : Number of data points stored. Default `30`
 * __envLabel__ : Optional environment label. Default `null`
 
 ![screenshot-env-label](https://raw.githubusercontent.com/tulios/burrow-stats/master/screenshot-env-label.png)

@@ -22,6 +22,6 @@
   },
   "burrowStatsOptions": {
     "pollInterval": 60,
-    "cacheBinSize": 60
+    "cacheBinSize": 30
   }
 }
