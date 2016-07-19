@@ -13,7 +13,13 @@ export default React.createClass({
   },
 
   componentWillMount() {
-    API.onSuccess((stats, data) => this.setState({apiError: false}))
+    API.onSuccess((stats, data) => {
+      this.setState({apiError: false})
+      if (this.hasNewVersion(data)) {
+        location.reload(true)
+      }
+    })
+
     API.onError((request, err) => {
       this.setState({apiError: 'API failed! Dashboard offline'})
       return true
@@ -46,5 +52,10 @@ export default React.createClass({
         SettingsStore.set(response.data)
         this.setState({loaded: true})
       })
+  },
+
+  hasNewVersion(response) {
+    const metadata = SettingsStore.metadata()
+    return metadata && metadata.version !== response.meta.version
   }
 })
