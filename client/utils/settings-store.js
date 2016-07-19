@@ -6,6 +6,10 @@ export default {
   },
 
   get() {
-    return configs
+    return (configs || {}).data
+  },
+
+  metadata() {
+    return (configs || {}).meta
   }
 }

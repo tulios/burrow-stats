@@ -10,7 +10,9 @@ export default React.createClass({
   fetch() {
     API.Consumer
       .status()
-      .then((data) => !this.props.apiError && this._isMounted ? this.setState(data) : null)
+      .then((response) => {
+        !this.props.apiError && this._isMounted ? this.setState(response.data) : null
+      })
   },
 
   componentWillMount() {

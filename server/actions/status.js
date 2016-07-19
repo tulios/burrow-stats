@@ -1,4 +1,5 @@
 var config = require('../../configs.json')
+var version = require('../../package.json').version
 var axios = require('axios')
 var q = require('q')
 
@@ -22,6 +23,6 @@ module.exports = function (req, res) {
       data = data
         .filter((promise) => promise.state === 'fulfilled')
         .map((promise) => promise.value)
-      res.json(data)
+      res.json({ data: data, meta: { version: version }})
     })
 }
