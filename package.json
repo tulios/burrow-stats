@@ -1,6 +1,6 @@
 {
   "name": "burrow-stats",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "engines": {
     "node": "5.5.x"
   },
