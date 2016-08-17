@@ -11,9 +11,17 @@
     color: #D0D0D0;
   }
 
-  &.err {
+  &.err, &.stop {
     border-color: #ef4242;
     background-color: #f06a6a;
+  }
+
+  &.stall, &.warn {
+    background-color: rgba(255, 163, 0, 0.60);
+  }
+
+  &.notfound {
+    background-color: #999;
   }
 
   .status {
