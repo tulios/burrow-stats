@@ -1,5 +1,6 @@
 import moment from 'moment'
 import burrowStatsOptions from '../utils/burrow-stats-options'
+import offsetsNormalizer from '../utils/offsets-normalizer'
 
 function cacheKey(name) {
   return `burrowStats-${name}`
@@ -20,8 +21,8 @@ function readTotalLag(name) {
 function refreshTotalLag(consumer) {
   const cacheName = `total-lag-${consumer.name}`
   const currentTime = moment().format('H:mm:ss')
-  const consumerGroupOffsets = consumer.consumer_group.offsets
-  const topicOffsets = consumer.topic.offsets
+  const consumerGroupOffsets = offsetsNormalizer(consumer.consumer_group.offsets)
+  const topicOffsets = offsetsNormalizer(consumer.topic.offsets)
   const totalLag = topicOffsets
     .map((value, i) => value - consumerGroupOffsets[i])
     .map((value) => value >= 0 ? value : 0)

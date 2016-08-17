@@ -4,14 +4,15 @@ import moment from 'moment'
 import humanize from '../utils/humanize'
 import chartEntry from '../utils/chart-entry'
 import chartOptions from '../utils/chart-options'
+import offsetsNormalizer from '../utils/offsets-normalizer'
 
 import Widget from './widget'
 import ConsumerLagReport from './consumer-lag-report'
 
 export default React.createClass({
   render() {
-    const consumerGroupOffsets = this.props.consumer_group.offsets
-    const topicOffsets = this.props.topic.offsets
+    const consumerGroupOffsets = offsetsNormalizer(this.props.consumer_group.offsets)
+    const topicOffsets = offsetsNormalizer(this.props.topic.offsets)
     const lag = topicOffsets
       .map((value, i) => value - consumerGroupOffsets[i])
       .map((value) => value >= 0 ? value : 0)
