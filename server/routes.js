@@ -1,5 +1,3 @@
-var request = require('request')
-
 module.exports = function (app) {
   app.get('/api/configs.json', require('./actions/configs'))
   app.get('/api/consumers/lag.json', require('./actions/consumers'))
