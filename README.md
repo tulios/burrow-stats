@@ -7,6 +7,8 @@ Dashboard for burrow kafka consumer lag checking
 ## Running locally
 
 ```sh
+yarn install
+
 npm run dev
 ```
 
