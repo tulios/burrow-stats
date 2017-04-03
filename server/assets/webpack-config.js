@@ -1,8 +1,6 @@
-import path from 'path'
-import { DefinePlugin, HotModuleReplacementPlugin, optimize } from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import reactTransform from 'babel-plugin-react-transform'
-import { join } from 'path'
+import path, {join} from "path";
+import {DefinePlugin, HotModuleReplacementPlugin, optimize} from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const projectPath = join(__dirname, '../..')
 const watch = process.env.NODE_ENV !== 'production'
@@ -39,7 +37,7 @@ if (watch) {
 }
 
 export default {
-  context: projectPath + '/client',
+  context: path.resolve(projectPath, 'client'),
 
   entry,
 
