@@ -30,8 +30,12 @@ export default React.createClass({
   },
 
   chartData() {
-    this.props.consumers.forEach(cache.refreshTotalLag)
-    const consumerNames = this.props.consumers.map(entry => entry.name)
+    let consumers = this.props.consumers
+      .filter(
+        (consumer) => {return !!consumer.consumer_group.offsets}
+      )
+    consumers.forEach(cache.refreshTotalLag)
+    const consumerNames = consumers.map(entry => entry.name)
     const caches = consumerNames.map(cache.readTotalLag)
     const labels = caches[0].series.map(chartLabel)
 
