@@ -4,6 +4,7 @@ import API from '../api'
 
 import APIStatus from '../components/api-status'
 import PartitionLagStats from '../components/partition-lag-stats'
+import StatusWidget from '../components/status-widget'
 import Spinner from '../components/spinner'
 import burrowStatsOptions from '../utils/burrow-stats-options'
 
@@ -49,7 +50,11 @@ export default React.createClass({
     return this.state
       .data
       .map((consumerData) => {
-        return <PartitionLagStats key={consumerData.name} {...consumerData} />
+        if (!consumerData.consumer_group.offsets){
+          return <StatusWidget key={consumerData.name} name={consumerData.name} status='Consumer Group Inactive' />
+        } else {
+          return <PartitionLagStats key={consumerData.name} {...consumerData} />
+        }
       })
   }
 })

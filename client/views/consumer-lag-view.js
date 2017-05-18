@@ -5,6 +5,7 @@ import APIStatus from '../components/api-status'
 import TotalLagStats from '../components/total-lag-stats'
 import MergedLagStats from '../components/merged-lag-stats'
 import Spinner from '../components/spinner'
+import StatusWidget from '../components/status-widget'
 import Toggle from 'material-ui/Toggle';
 import burrowStatsOptions from '../utils/burrow-stats-options'
 
@@ -74,7 +75,11 @@ export default React.createClass({
     return this.state
       .data
       .map((consumerData) => {
-        return <TotalLagStats key={consumerData.name} {...consumerData} />
+        if (!consumerData.consumer_group.offsets){
+          return <StatusWidget key={consumerData.name} name={consumerData.name} status='Consumer Group Inactive' />
+        } else {
+          return <TotalLagStats key={consumerData.name} {...consumerData} />
+        }
       })
   }
 })
