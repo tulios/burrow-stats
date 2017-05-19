@@ -2,7 +2,7 @@
   "name": "burrow-stats",
   "version": "0.6.2",
   "engines": {
-    "node": "5.5.x"
+    "node": "7.10.x"
   },
   "description": "",
   "main": "index.js",

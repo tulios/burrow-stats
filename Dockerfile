@@ -1,9 +1,15 @@
-FROM node:5.6.0-slim
+FROM node:7.10-slim
+
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 WORKDIR /opt/burrow-stats
+
+ADD yarn.lock yarn.lock
 ADD package.json package.json
-RUN npm install
+RUN yarn install
+
 ADD . .
+
 ENV NODE_ENV=production
-RUN npm run build
-CMD npm start
+RUN yarn build
+CMD yarn start
