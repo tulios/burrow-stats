@@ -15,7 +15,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.9.1",
+    "axios": "^0.18.1",
     "babel": "^6.5.2",
     "babel-preset-es2015": "^6.5.0",
     "babel-register": "^6.5.2",
